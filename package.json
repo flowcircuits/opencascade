@@ -2,7 +2,7 @@
     "name": "@flowcircuits/opencascade",
     "author": "FLOW CIRCUITS LLC",
     "repository": "https://github.com/flowcircuits/opencascade",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "files": [
         "dist"
     ],
