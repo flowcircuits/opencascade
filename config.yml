@@ -286,11 +286,11 @@ mainBuild:
     - -sMAXIMUM_MEMORY=4GB
     - -sALLOW_MEMORY_GROWTH=1
     - -sUSE_FREETYPE=1
-  additionalCppCode: |
-    typedef Handle(IMeshTools_Context) Handle_IMeshTools_Context;
-    class OCJS {
-    public:
-      static Standard_Failure* getStandard_FailureData(intptr_t exceptionPtr) {
-        return reinterpret_cast<Standard_Failure*>(exceptionPtr);
-      }
-    };
+additionalCppCode: |
+  typedef Handle(IMeshTools_Context) Handle_IMeshTools_Context;
+  class OCJS {
+  public:
+    static Standard_Failure* getStandard_FailureData(intptr_t exceptionPtr) {
+      return reinterpret_cast<Standard_Failure*>(exceptionPtr);
+    }
+  };
