@@ -276,21 +276,29 @@ mainBuild:
     - symbol: STEPControl_StepModelType
     - symbol: IFSelect_ReturnStatus
     - symbol: IFSelect_WorkSession
+
+    # - symbol: Handle_IMeshTools_Context
+    # - symbol: OCJS
   emccFlags:
     - -O3
     - -sEXPORT_ES6=1
     - -sUSE_ES6_IMPORT_META=0
+    - -flto
+    - -fexceptions
+    - -sDISABLE_EXCEPTION_CATCHING=1
+    - -sLLD_REPORT_UNDEFINED
     - -sEXPORTED_RUNTIME_METHODS=['FS']
     - -sENVIRONMENT=node
     - -sINITIAL_MEMORY=100MB
     - -sMAXIMUM_MEMORY=4GB
     - -sALLOW_MEMORY_GROWTH=1
     - -sUSE_FREETYPE=1
-additionalCppCode: |
-  typedef Handle(IMeshTools_Context) Handle_IMeshTools_Context;
-  class OCJS {
-  public:
-    static Standard_Failure* getStandard_FailureData(intptr_t exceptionPtr) {
-      return reinterpret_cast<Standard_Failure*>(exceptionPtr);
-    }
-  };
+    - --no-entry
+# additionalCppCode: |
+#   typedef Handle(IMeshTools_Context) Handle_IMeshTools_Context;
+#   class OCJS {
+#     public:
+#       static Standard_Failure* getStandard_FailureData(intptr_t exceptionPtr) {
+#         return reinterpret_cast<Standard_Failure*>(exceptionPtr);
+#       }
+#   };
