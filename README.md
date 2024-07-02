@@ -1,4 +1,4 @@
-# Flow Circuits OC
+# Flow Circuits Open Cascade
 
 This package contains the [configuration](https://ocjs.org/docs/app-dev-workflow/custom-builds) to build the custom build of [opencascade.js](https://github.com/donalffons/opencascade.js/) for [Flow Circuits](https://www.flowcircuits.com)
 
