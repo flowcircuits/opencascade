@@ -1,0 +1,38 @@
+name: Publish Package to npm
+on:
+    release:
+        types: [published]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Setup Node and .npmrc
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: "yarn"
+                  registry-url: "https://registry.npmjs.org"
+            - name: Get User ID and Group ID
+              id: get-ids
+              run: |
+                  echo "{u}={$(id -u)}" >> $GITHUB_OUTPUT
+                  echo "{g}={$(id -g)}" >> $GITHUB_OUTPUT
+            - name: Run Docker Command
+              uses: addnab/docker-run-action@v3
+              with:
+                  image: donalffons/opencascade.js
+                  options: |
+                      --rm
+                      -v ${{ github.workspace }}:/src
+                      -u ${{ steps.get-ids.outputs.u }}:${{ steps.get-ids.outputs.g }}
+                  run: /opencascade.js/src/buildFromYaml.py config.yml
+            - name: Install Deps & Build
+              run: |
+                  yarn install
+                  yarn build --skip-docker
+            - name: Publish
+              run: yarn publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

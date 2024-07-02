@@ -1,0 +1,35 @@
+{
+    "name": "@flowcircuits/opencascade",
+    "author": "FLOW CIRCUITS LLC",
+    "repository": "https://github.com/flowcircuits/opencascade",
+    "version": "1.0.0",
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "default": "./dist/index.js",
+                "types": "./dist/index.d.ts"
+            },
+            "require": {
+                "default": "./dist/index.cjs",
+                "types": "./dist/index.d.ts"
+            }
+        }
+    },
+    "scripts": {
+        "build": "./build.sh"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/cli": "7.24.7",
+        "@babel/plugin-transform-modules-commonjs": "7.24.7"
+    },
+    "dependencies": {
+        "@babel/core": "^7.24.7"
+    }
+}
