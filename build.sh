@@ -16,11 +16,12 @@ if [ "$SKIP_DOCKER" = false ]; then
         -it \
         -v "$(pwd):/src" \
         -u "$(id -u):$(id -g)" \
-        donalffons/opencascade.js \
+        donalffons/opencascade.js:multi-threaded \
         config.yml
 fi
 
 babel index.js --out-file index.cjs
+babel index.worker.js --out-file index.worker.cjs
 rm -rf dist
 mkdir dist
 mv index.* dist

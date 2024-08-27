@@ -2,7 +2,7 @@
     "name": "@flowcircuits/opencascade",
     "author": "FLOW CIRCUITS LLC",
     "repository": "https://github.com/flowcircuits/opencascade",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "files": [
         "dist"
     ],
@@ -28,7 +28,9 @@
     "devDependencies": {
         "@babel/cli": "7.24.7",
         "@babel/core": "7.24.7",
-        "@babel/plugin-transform-modules-commonjs": "7.24.7"
+        "@babel/plugin-transform-modules-commonjs": "7.24.7",
+        "babel-plugin-search-and-replace": "1.1.1",
+        "babel-plugin-transform-replace-expressions": "0.2.0"
     },
     "dependencies": {}
 }

@@ -1,3 +1,28 @@
 {
-    "plugins": ["@babel/plugin-transform-modules-commonjs"]
+    "plugins": [
+        "@babel/plugin-transform-modules-commonjs",
+        [
+            "babel-plugin-transform-replace-expressions",
+            {
+                "replace": {
+                    "exports.default(Module)": "exports.default.default(Module)"
+                }
+            }
+        ],
+        [
+            "babel-plugin-search-and-replace",
+            {
+                "rules": [
+                    {
+                        "search": "./index.js",
+                        "replace": "./index.cjs"
+                    },
+                    {
+                        "search": "index.worker.js",
+                        "replace": "index.worker.cjs"
+                    }
+                ]
+            }
+        ]
+    ]
 }

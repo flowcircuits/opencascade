@@ -124,7 +124,6 @@ mainBuild:
     - symbol: TopAbs_Orientation
     - symbol: TopLoc_Location
     - symbol: TopExp_Explorer
-    - symbol: TopTools_ListOfShape
     - symbol: NCollection_BaseList
 
     - symbol: Poly_Connect
@@ -167,7 +166,6 @@ mainBuild:
     - symbol: StlAPI_Writer
     - symbol: STEPControl_Writer
     - symbol: STEPControl_StepModelType
-    - symbol: IFSelect_ReturnStatus
 
     - symbol: Handle_Law_Function
     - symbol: Law_Function
@@ -273,7 +271,6 @@ mainBuild:
     - symbol: XSControl_WorkSession
     - symbol: Handle_XSControl_WorkSession
     - symbol: STEPCAFControl_Writer
-    - symbol: STEPControl_StepModelType
     - symbol: IFSelect_ReturnStatus
     - symbol: IFSelect_WorkSession
 
@@ -292,8 +289,9 @@ mainBuild:
     - -sINITIAL_MEMORY=100MB
     - -sMAXIMUM_MEMORY=4GB
     - -sALLOW_MEMORY_GROWTH=1
-    - -sUSE_FREETYPE=1
+    - -sUSE_FREETYPE=0
     - --no-entry
+    - -sPTHREAD_POOL_SIZE='require("os").cpus().length'
 # additionalCppCode: |
 #   typedef Handle(IMeshTools_Context) Handle_IMeshTools_Context;
 #   class OCJS {
