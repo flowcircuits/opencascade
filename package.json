@@ -26,9 +26,9 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "@babel/cli": "7.24.7",
-        "@babel/core": "7.24.7",
-        "@babel/plugin-transform-modules-commonjs": "7.24.7",
+        "@babel/cli": "7.24.8",
+        "@babel/core": "7.25.2",
+        "@babel/plugin-transform-modules-commonjs": "7.24.8",
         "babel-plugin-search-and-replace": "1.1.1",
         "babel-plugin-transform-replace-expressions": "0.2.0"
     },
